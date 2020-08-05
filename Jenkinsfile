@@ -28,7 +28,7 @@ pipeline {
                 script {
                     def scannerHome = tool 'sonarqubescanner';
                     sh "source /opt/sonar-tokens/tokens.sh $GIT_AUTHOR_NAME"
-                    sh "echo ${TOKEN_SONAR}"
+                    sh "echo $TOKEN_SONAR"
                     withSonarQubeEnv('sonarqubeserver') {
                         sh "${tool("sonarqubescanner")}/bin/sonar-scanner -Dsonar.login=226b26692118a8dd4fe8dd7c2d908307c40c6095"
                     }
