@@ -37,12 +37,12 @@ pipeline {
                 }
             }
         }
-        // stage("Verificando qualidade do código") {
-        //     steps {
-        //       timeout(time: 1, unit: 'HOURS') {
-        //         waitForQualityGate abortPipeline: true
-        //       }
-        //     }
-        // }
+        stage("Verificando qualidade do código") {
+            steps {
+              timeout(time: 1, unit: 'HOURS') {
+                waitForQualityGate abortPipeline: true
+              }
+            }
+        }
     }
 }
