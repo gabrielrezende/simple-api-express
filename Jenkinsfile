@@ -32,7 +32,7 @@ pipeline {
                     echo "${BUILD_NUMBER}"
                     def scannerHome = tool 'sonarqubescanner';
                     withSonarQubeEnv('sonarqubeserver') {
-                        sh "${tool("sonarqubescanner")}/bin/sonar-scanner \ 
+                        sh "${tool("sonarqubescanner")}/bin/sonar-scanner \
                         -Dsonar.login=${token_sonar} \
                         -Dsonar.projectVersion=${BUILD_NUMBER} "
                     }
