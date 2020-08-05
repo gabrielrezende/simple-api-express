@@ -16,13 +16,13 @@ pipeline {
                 }
             }
         }
-        // stage("Realizando testes unitários") {
-        //     steps {
-        //         nodejs(nodeJSInstallationName: 'nodejs-server'){
-        //             sh "npm test"
-        //         }
-        //     }
-        // }
+        stage("Realizando testes unitários") {
+            steps {
+                nodejs(nodeJSInstallationName: 'nodejs-server'){
+                    sh "npm test"
+                }
+            }
+        }
         stage('Scanendo qualidade do código') {
             steps {
                 script {
