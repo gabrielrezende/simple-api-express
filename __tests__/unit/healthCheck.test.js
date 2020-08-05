@@ -10,7 +10,7 @@ describe('HealthCheck',()=>{
 
   it("HealthCheck", async () => {
     const response = await request(app).post("/");
-    expect(response.status).toBe(400);
+    expect(response.status).toBe(404);
   });
 
 })
