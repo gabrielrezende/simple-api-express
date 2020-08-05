@@ -3,5 +3,5 @@ const app = require("../../src/app");
 
 it("HealthCheck", async () => {
   const response = await request(app).get("/");
-  expect(response.status).toBe(200);
+  expect(response.status).toBe(400);
 });
