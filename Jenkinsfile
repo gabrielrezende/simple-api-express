@@ -31,7 +31,7 @@ pipeline {
                     // def author = sh script: "git show -s --pretty=\"%an <%ae>\" ${GIT_COMMIT}", returnStdout: true
                     // sh "echo ${author}"
                     def git_author_email = sh ( script: 'git --no-pager show -s --format=\'%ae\'', returnStdout: true ).trim()
-                    def git_author_name = sh ( script: 'git --no-pager show -s --pretty=\"%an <%ae>\'', returnStdout: true ).trim()
+                    def git_author_name = sh ( script: "git show -s --pretty=\"%an <%ae>\" ${GIT_COMMIT}", returnStdout: true ).trim()
                     echo "${git_author_email}"
                     echo "${git_author_name}"
                     def scannerHome = tool 'sonarqubescanner';
