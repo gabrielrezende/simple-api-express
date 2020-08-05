@@ -26,7 +26,7 @@ pipeline {
         stage('Scanendo qualidade do código') {
             steps {
                 script {
-                    sh "source /opt/sonar-tokens/tokens.sh iteste"
+                    // sh "source /opt/sonar-tokens/tokens.sh iteste"
                     def fields = env.getEnvironment()
                     fields.each {
                         key, value -> println("${key} = ${value}");
