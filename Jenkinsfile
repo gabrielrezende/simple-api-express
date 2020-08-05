@@ -27,6 +27,7 @@ pipeline {
             steps {
                 script {
                     sh "printenv"
+                    sh "echo $GIT_BRANCH"
                     def scannerHome = tool 'sonarqubescanner';
                     withSonarQubeEnv('sonarqubeserver') {
                         sh "${tool("sonarqubescanner")}/bin/sonar-scanner -Dsonar.login=226b26692118a8dd4fe8dd7c2d908307c40c6095"
