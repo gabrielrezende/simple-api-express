@@ -26,14 +26,10 @@ pipeline {
         stage('Scanendo qualidade do código') {
             steps {
                 script {
-                    sh "printenv"
-                    sh "echo $GIT_BRANCH"
-                    // def author = sh script: "git show -s --pretty=\"%an <%ae>\" ${GIT_COMMIT}", returnStdout: true
-                    // sh "echo ${author}"
-                    def git_author_email = sh ( script: 'git --no-pager show -s --format=\'%ae\'', returnStdout: true ).trim()
-                    def git_author_name = sh ( script: "git --no-pager show -s --pretty=\"%an <%ae>\" ${GIT_COMMIT}", returnStdout: true ).trim()
-                    echo "${git_author_email}"
-                    echo "${git_author_name}"
+                    def git_commiter_name = sh ( script: "git show -s --pretty=\"%ce\" ${GIT_COMMIT}", returnStdout: true ).trim()
+                    def token_sonar = sh ( script: "/opt/sonar-tokens/tokens.sh admin", returnStdout: true ).trim()
+                    echo "${token_sonar}"
+                    echo "${git_commiter_name}"
                     def scannerHome = tool 'sonarqubescanner';
                     // withSonarQubeEnv('sonarqubeserver') {
                     //     sh "${tool("sonarqubescanner")}/bin/sonar-scanner -Dsonar.login=226b26692118a8dd4fe8dd7c2d908307c40c6095"
