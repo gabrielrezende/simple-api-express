@@ -8,6 +8,11 @@ describe('HealthCheck',()=>{
     expect(response.status).toBe(200);
   });
 
+  it("HealthCheck/Count", async () => {
+    const response = await request(app).get("/count");
+    expect(response.status).toBe(200);
+  });
+
   it("HealthCheck", async () => {
     const response = await request(app).post("/");
     expect(response.status).toBe(404);
