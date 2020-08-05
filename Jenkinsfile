@@ -30,7 +30,8 @@ pipeline {
                     sh "echo $GIT_BRANCH"
                     // def author = sh script: "git show -s --pretty=\"%an <%ae>\" ${GIT_COMMIT}", returnStdout: true
                     // sh "echo ${author}"
-                    sh "echo ${env.GIT_AUTHOR_NAME}"
+                    def git_author = $(git show -s --pretty=%an)
+                    sh "echo ${git_author}"
                     def scannerHome = tool 'sonarqubescanner';
                     // withSonarQubeEnv('sonarqubeserver') {
                     //     sh "${tool("sonarqubescanner")}/bin/sonar-scanner -Dsonar.login=226b26692118a8dd4fe8dd7c2d908307c40c6095"
