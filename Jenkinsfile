@@ -29,7 +29,7 @@ pipeline {
                     def scannerHome = tool 'sonarqubescanner';
                     sh "echo ${scannerHome}"
                     withSonarQubeEnv('sonarqubeserver') {
-                        sh "${tool("sonarqubescanner")}/bin/sonar-scanner"
+                        sh "${tool("sonarqubescanner")}/bin/sonar-scanner -Dsonar.login=226b26692118a8dd4fe8dd7c2d908307c40c6095"
                     }
                 }
             }
