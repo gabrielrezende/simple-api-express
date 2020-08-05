@@ -32,7 +32,7 @@ pipeline {
                     echo "${git_commiter_name}"
                     def scannerHome = tool 'sonarqubescanner';
                     withSonarQubeEnv('sonarqubeserver') {
-                        sh "${tool("sonarqubescanner")}/bin/sonar-scanner -Dsonar.login=${token_sonar}"
+                        sh "${tool("sonarqubescanner")}/bin/sonar-scanner"
                     }
                 }
             }
