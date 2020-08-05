@@ -26,12 +26,12 @@ pipeline {
         stage('Scanendo qualidade do código') {
             steps {
                 script {
-                    def scannerHome = tool 'sonarqubescanner';
-                    sh "source /opt/sonar-tokens/tokens.sh $GIT_AUTHOR_NAME"
+                    // sh "source /opt/sonar-tokens/tokens.sh $GIT_AUTHOR_NAME"
                     def fields = env.getEnvironment()
                     fields.each {
                         key, value -> println("${key} = ${value}");
                     }
+                    def scannerHome = tool 'sonarqubescanner';
                     withSonarQubeEnv('sonarqubeserver') {
                         sh "${tool("sonarqubescanner")}/bin/sonar-scanner -Dsonar.login=226b26692118a8dd4fe8dd7c2d908307c40c6095"
                     }
