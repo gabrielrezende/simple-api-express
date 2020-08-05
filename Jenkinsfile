@@ -28,11 +28,13 @@ pipeline {
                 script {
                     def git_commiter_name = sh ( script: "git show -s --pretty=\"%ce\" ${GIT_COMMIT}", returnStdout: true ).trim()
                     def token_sonar = sh ( script: "/opt/sonar-tokens/tokens.sh bruno", returnStdout: true ).trim()
-                    echo "${token_sonar}"
                     echo "${git_commiter_name}"
+                    echo "${BUILD_NUMBER}"
                     def scannerHome = tool 'sonarqubescanner';
                     withSonarQubeEnv('sonarqubeserver') {
-                        sh "${tool("sonarqubescanner")}/bin/sonar-scanner -Dsonar.login=${token_sonar}"
+                        sh "${tool("sonarqubescanner")}/bin/sonar-scanner \ 
+                        -Dsonar.login=${token_sonar} \
+                        -Dsonar.projectVersion=${BUILD_NUMBER} "
                     }
                 }
             }
