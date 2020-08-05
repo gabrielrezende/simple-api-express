@@ -28,8 +28,8 @@ pipeline {
                 script {
                     sh "printenv"
                     sh "echo $GIT_BRANCH"
-                    def author = sh script: "git show -s --pretty=\"%an <%ae>\" ${GIT_COMMIT}", returnStdout: true
-                    sh "echo ${author}"
+                    // def author = sh script: "git show -s --pretty=\"%an <%ae>\" ${GIT_COMMIT}", returnStdout: true
+                    // sh "echo ${author}"
                     echo env.GIT_AUTHOR_NAME
                     def scannerHome = tool 'sonarqubescanner';
                     withSonarQubeEnv('sonarqubeserver') {
