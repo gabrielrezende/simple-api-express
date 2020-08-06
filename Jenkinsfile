@@ -27,7 +27,7 @@ pipeline {
             steps {
                 script {
                     def git_commiter_name = sh ( script: "git show -s --pretty=\"%ce\" ${GIT_COMMIT}", returnStdout: true ).trim()
-                    def token_sonar = sh ( script: "/opt/sonar-tokens/tokens.sh bruno", returnStdout: true ).trim()
+                    def token_sonar = sh ( script: "/opt/sonar-tokens/tokens.sh gabriel", returnStdout: true ).trim()
                     echo "${git_commiter_name}"
                     echo "${BUILD_NUMBER}"
                     def scannerHome = tool 'sonarqubescanner';
