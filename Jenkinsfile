@@ -36,7 +36,7 @@ pipeline {
                         -Dsonar.login=${token_sonar} \
                         -Dsonar.projectVersion=${BUILD_NUMBER} \
                         -Dsonar.verbose=true \
-                        -Dsonar.scm.disabled=true \
+                        -Dsonar.scm.enabled=true \
                         -Dsonar.scm.provider=git \
                         "
                     }
