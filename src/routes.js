@@ -5,10 +5,10 @@ routes.get("/", (req, res) => {
 });
 
 routes.get("/count", (req, res) => {
-  let a = 0;
+  const a = 0;
   let b = 0;
   let c = a + b;
-  c = a + b; 
+  c = a + b + 3; 
   return res.status(200).send({ message: "API Ok", count: c });
 });
 
