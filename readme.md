@@ -1,1 +1,1 @@
-[![Quality Gate Status](http://10.11.73.5:9000/api/project_badges/measure?project=simple-api-express&metric=alert_status)](http://10.11.73.5:9000/dashboard?id=simple-api-express)
+[![Quality Gate Status](http://[[177.85.162.158](http://177.85.162.158/)](http://177.85.162.158/):9000/api/project_badges/measure?project=simple-api-express&metric=alert_status)](http://[[177.85.162.158](http://177.85.162.158/)](http://177.85.162.158/):9000/dashboard?id=simple-api-express)
