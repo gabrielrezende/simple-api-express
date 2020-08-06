@@ -34,7 +34,8 @@ pipeline {
                     withSonarQubeEnv('sonarqubeserver') {
                         sh "${tool("sonarqubescanner")}/bin/sonar-scanner \
                         -Dsonar.login=${token_sonar} \
-                        -Dsonar.projectVersion=${BUILD_NUMBER} "
+                        -Dsonar.projectVersion=${BUILD_NUMBER} \
+                        -Dsonar.verbose=true"
                     }
                 }
             }
